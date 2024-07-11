@@ -27,12 +27,12 @@
 }
 
 .side-header {
-    width: 200px;
+    width: 300px;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
     float: right;
     margin-right: 30px;

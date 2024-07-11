@@ -51,7 +51,7 @@ function Login() {
           <img src={logo} alt="logo" />
         </div>
         <div className="side-header">
-          <p>Let's get cooking...</p>
+          <p><i>Pick up your spatula and let's get cooking...</i></p>
         </div>
       </div>
       <div className="login-container">
