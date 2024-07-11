@@ -3,7 +3,7 @@ import "./login.css";
 import logo from '../../../images/logo.png';
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -39,6 +39,10 @@ function Login() {
       }     
 
   };
+
+  const resetPass = () => {
+
+  }
 
   return (
     <div className="login">
@@ -78,12 +82,10 @@ function Login() {
 
           <div className="login-bottom-nav">
             <p>
-              Forgot Password?
-              <br /> Click here
+              Forgot Password?<br /> <Link to={resetPass}>Click here</Link>               
             </p>
             <p>
-              Don't have an account?
-              <br /> Register
+              Don't have an account?<br /> <Link to='/signup'>Register</Link>               
             </p>
           </div>
         </div>

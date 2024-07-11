@@ -1,7 +1,7 @@
 import React from 'react'
 import './signup.css';
 import logo from '../../../images/Vee-logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Signup() {
@@ -49,7 +49,7 @@ function Signup() {
 
               <button type="submit">Register</button>
             </form>
-            <p>Already registered? Login</p>            
+            <p>Already registered? <Link to='/'>Login</Link></p>            
           </div>
         </div>
 
