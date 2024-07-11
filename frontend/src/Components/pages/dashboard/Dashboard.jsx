@@ -1,12 +1,20 @@
 import React, { useContext } from 'react';
 import './dashboard.css';
 import logo from '../../../images/Vee-logo.png';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 
 function Dashboard() {
-  const {user, isFetching, error,dispatch } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const userName = useParams().userName;
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const token = sessionStorage.removeItem('token')
+    dispatch({type: 'LOGOUT', payload: token});
+    navigate('/')
+  }
+
   return (
     <div className='dashboard'>
       <div className="dash-header">
@@ -18,12 +26,7 @@ function Dashboard() {
           <img src={logo} alt="logo" />
         </div>
         <div className="dash-nav">
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Logout</li>
-          </ul>
+            <button className='dash-btn' type="button" onClick={handleLogout}>Logout</button>
         </div>
       </div>
         <div className="dash-container">

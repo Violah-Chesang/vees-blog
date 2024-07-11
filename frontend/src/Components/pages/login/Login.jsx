@@ -9,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const {user, isFetching, error,dispatch } = useContext(AuthContext);
+  const {user, isFetching, error, logout, dispatch } = useContext(AuthContext);
 
   const handleLogin =async  (event) => {
     event.preventDefault();

@@ -11,3 +11,8 @@ export const loginError = (error) => ({
     type : 'LOGIN_ERROR',
     payload : error
 });
+
+export const logout = (logoutToken) => ({
+    type : 'LOGOUT',
+    payload : logoutToken
+});

@@ -18,6 +18,14 @@
     padding: 20px;    
 }
 
+.welcome-user h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: tomato;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
 .dash-logo {
     flex:4;    
     display: flex;
@@ -33,6 +41,20 @@
 
 .dash-nav {
     flex: 4;
+}
+
+.dash-btn {
+    width: 80%;
+    height: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-width: 0;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    color: tomato;
+    text-align: right;
+    text-transform: uppercase;
 }
 
 .dash-nav ul {
