@@ -1,0 +1,95 @@
+import React, { useContext, useState } from "react";
+import "./login.css";
+import logo from '../../../images/logo.png';
+import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+function Login() {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const {user, isFetching, error,dispatch } = useContext(AuthContext);
+
+  const handleLogin =async  (event) => {
+    event.preventDefault();
+      // LOGIN_START
+      dispatch({type: 'LOGIN_START'});
+      try {
+        // LOGIN_SUCCESS
+        const res = await axios.post("http://localhost:5500/", {userName, password});
+        const userData = res.data;
+        dispatch({type: 'LOGIN_SUCCESS',payload: userData});
+        console.log('User data:', userData);
+              
+        const token = userData.token;
+        console.log(token)
+        if (!token) {
+          console.log("No token issued");
+          return;
+        }
+        console.log('User data:', userData);
+        sessionStorage.setItem("token", token);
+          navigate(`/dashboard/${userName}`);
+      } catch (error) {
+        // LOGIN_FAILURE
+        dispatch({ type: 'LOGIN_FAILURE', payload: error.response ? error.response.data : "Login failed" });
+        console.log('Login error:', error.response ? error.response.data : error);
+        
+      }     
+
+  };
+
+  return (
+    <div className="login">
+      <div className="login-header">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="side-header">
+          <p>Photo</p>
+          <p>Settings</p>
+          <p>Logout</p>
+        </div>
+      </div>
+      <div className="login-container">
+        <h1>Welcome</h1>
+        <div className="login-form">
+          <form onSubmit={handleLogin}>
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              placeholder="Username"
+              required
+              onChange={(event) => setUserName(event.target.value)}
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <button className="login-btn" type="submit">{isFetching? 'loading...' : 'Login'}</button>
+            {error && <span>{error}</span>}
+          </form>
+
+          <div className="login-bottom-nav">
+            <p>
+              Forgot Password?
+              <br /> Click here
+            </p>
+            <p>
+              Don't have an account?
+              <br /> Register
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Login;

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './dashboard.css';
-import logo from '../../images/Vee-logo.png';
+import logo from '../../../images/Vee-logo.png';
+import { useParams } from 'react-router';
+import { AuthContext } from '../../../context/AuthContext';
 
 function Dashboard() {
+  const {user, isFetching, error,dispatch } = useContext(AuthContext);
+  const userName = useParams().userName;
   return (
     <div className='dashboard'>
       <div className="dash-header">
         <div className="welcome-user">
           <h1>Welcome</h1>
-          <h3>@username</h3>
+          <h3>{userName}</h3>
         </div>
         <div className="dash-logo">
           <img src={logo} alt="logo" />
