@@ -18,7 +18,7 @@ function Signup() {
     }
 
     try {
-      const res = await axios.post('http://localhost:5500/signup/', data);
+      const res = await axios.post('https://vees-blog-api.vercel.app/', data);
       navigate('/');
       console.log(res.data)
     } catch (error) {
