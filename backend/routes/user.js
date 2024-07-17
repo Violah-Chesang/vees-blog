@@ -35,7 +35,6 @@ router.post('/signup',async (req, res) => {
 });
 // router.post('/', authorization ,async (req, res) => {
 router.post('/',async (req, res) => {
-    res.send('hello!');
     const { userName, password } = req.body;
     if(!userName || !password) {
         res.status(400).json({message: "Missing information"})
@@ -70,5 +69,9 @@ router.get('/users',async (req, res) => {
     res.status(200).json(users)
     
 }) 
+
+router.get('/', (req,res) => {
+    res.send("Hello from get");
+})
 
 module.exports = router;
