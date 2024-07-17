@@ -7,8 +7,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("admin");
+  const [password, setPassword] = useState("admin");
   const {user, isFetching, error, logout, dispatch } = useContext(AuthContext);
 
   const handleLogin =async  (event) => {
