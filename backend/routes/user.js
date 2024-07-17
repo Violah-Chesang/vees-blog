@@ -35,6 +35,7 @@ router.post('/signup',async (req, res) => {
 });
 // router.post('/', authorization ,async (req, res) => {
 router.post('/',async (req, res) => {
+    res.send('hello!');
     const { userName, password } = req.body;
     if(!userName || !password) {
         res.status(400).json({message: "Missing information"})
