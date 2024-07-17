@@ -68,10 +68,6 @@ router.get('/users',async (req, res) => {
     const users = await User.find();
     res.status(200).json(users)
     
-}) 
-
-router.get('/', (req,res) => {
-    res.send("Hello from get");
 })
 
 module.exports = router;

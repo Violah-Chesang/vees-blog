@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ['https://vees-blog-api.vercel.app'],
+    origin: [''],
     methods: ['POST', 'GET'],
     credentials: true
 }))
