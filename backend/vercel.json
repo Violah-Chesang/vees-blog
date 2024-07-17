@@ -1,15 +1,14 @@
 {
     "version": 2,
-    "builds":[
-        {
-            "src": "*.js",
-            "use": "@vercel/node"
-        }
+    "builds": [
+      { "src": "app.js", "use": "@vercel/node" },
+      { "src": "routes/**/*.js", "use": "@vercel/node" },
+      { "src": "config/**/*.js", "use": "@vercel/node" },
+      { "src": "middlewares/**/*.js", "use": "@vercel/node" },
+      { "src": "models/**/*.js", "use": "@vercel/node" }
     ],
-	"routes": [
-        { 
-        "src": "/(.*)", 
-        "dest": "/" 
-        }
+    "routes": [
+      { "src": "/(.*)", "dest": "/app.js" }
     ]
-}
+  }
+  
