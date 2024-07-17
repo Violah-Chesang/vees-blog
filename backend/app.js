@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ['https://vees-blog-fontend-qoa9moqmp-violahs-projects.vercel.app/'],
+    origin: ['https://vees-blog-fontend.vercel.app/'],
     methods: ['POST', 'GET'],
     credentials: true
 }))
