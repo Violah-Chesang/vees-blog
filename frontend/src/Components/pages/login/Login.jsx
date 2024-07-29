@@ -63,7 +63,8 @@ function Login() {
               name="userName"
               id="userName"
               placeholder="Username"
-              required
+              required              
+              value={userName}
               onChange={(event) => setUserName(event.target.value)}
             />
             <input
@@ -72,6 +73,7 @@ function Login() {
               id="password"
               placeholder="Password"
               required
+              value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="login-btn" type="submit">{isFetching? 'loading...' : 'Login'}</button>
