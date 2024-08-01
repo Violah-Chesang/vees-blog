@@ -7,8 +7,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("admin");
+  const [password, setPassword] = useState("pass123");
   const {user, isFetching, error, logout, dispatch } = useContext(AuthContext);
 
   const handleLogin =async  (event) => {
@@ -30,7 +30,7 @@ function Login() {
         }
         console.log('User data:', userData);
         sessionStorage.setItem("token", token);
-          navigate(`/dashboard/${userName}`);
+          navigate(`/home`);
       } catch (error) {
         // LOGIN_FAILURE
         dispatch({ type: 'LOGIN_FAILURE', payload: error.response ? error.response.data : "Login failed" });
@@ -64,6 +64,7 @@ function Login() {
               id="userName"
               placeholder="Username"
               required
+              value={userName}
               onChange={(event) => setUserName(event.target.value)}
             />
             <input
@@ -72,6 +73,7 @@ function Login() {
               id="password"
               placeholder="Password"
               required
+              value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="login-btn" type="submit">{isFetching? 'loading...' : 'Login'}</button>
